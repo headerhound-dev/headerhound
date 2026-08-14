@@ -4,6 +4,8 @@
 
 Think *EasyList, but for cold email.* HeaderHound is not an app. It's a versioned data file (`fingerprints.json`) of patterns that identify the platform an email was blasted from — Instantly, Smartlead, Apollo, Salesloft, and the rest — so that any mail filter, add-on, or script can consume it and let *you* decide what happens to mail from people who paid a machine to reach you.
 
+> **Not technical?** Start with [What is this, in plain English?](./WHAT-IS-THIS.md) — no jargon, and a ten-minute setup guide from there.
+
 ---
 
 ## Why we exist
