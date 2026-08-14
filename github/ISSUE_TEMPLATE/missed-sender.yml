@@ -1,0 +1,43 @@
+name: "Missed sender"
+description: "Report a cold-outreach email that HeaderHound did not catch."
+title: "Missed: <platform>"
+labels: ["missed-sender"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the list fresh — a missed sender is the most valuable report there is.
+
+        **Please redact your personal email address and any private details before submitting.** We only need the machine-readable header tells, not your correspondence.
+
+        ⚠️ **Watch out for tokens:** long IDs and base64 strings (`X-Mailgun-Sid`, unsubscribe URLs, `mkt_tok`, feedback IDs) often **encode your email address** even after you delete the To: line. Trim or truncate them — the header *name* and the vendor domain are usually all we need.
+  - type: input
+    id: platform
+    attributes:
+      label: "Platform (if known)"
+      placeholder: 'e.g. Instantly, Smartlead, or "not sure"'
+    validations:
+      required: false
+  - type: textarea
+    id: headers
+    attributes:
+      label: "Giveaway header(s)"
+      description: "Paste the identifying header lines. Look for X-Mailer, X-Mail-Abuse-Inquiries, List-Unsubscribe, Feedback-ID, vendor-specific X- headers, or a tracking/unsubscribe domain. In Gmail: open the message → ⋮ → Show original → copy the header block."
+      render: text
+      placeholder: "X-Mailer: ExampleTool 2.1\nList-Unsubscribe: <https://track.exampletool.com/u/...>"
+    validations:
+      required: true
+  - type: input
+    id: reference
+    attributes:
+      label: "Vendor URL (optional)"
+      placeholder: "https://exampletool.com"
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: "Before submitting"
+      options:
+        - label: "I removed my personal email address and any private details from the pasted headers — including long tokens/IDs, which often encode my address."
+          required: true
