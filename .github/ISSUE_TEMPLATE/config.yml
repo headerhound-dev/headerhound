@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "Setup help (non-developers)"
+    url: "https://github.com/headerhound-dev/headerhound/blob/main/GETTING-STARTED.md"
+    about: "New here and just want to use HeaderHound in Gmail? Start with the plain-language setup guide."
