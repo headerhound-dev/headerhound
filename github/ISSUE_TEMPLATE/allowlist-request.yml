@@ -1,0 +1,51 @@
+name: "Allowlist request"
+description: "Propose a domain for the PUBLIC allowlist (legitimate mail wrongly flagged for everyone)."
+title: "Allowlist: <domain>"
+labels: ["allowlist"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The public allowlist spares senders that are legitimate **for essentially everyone** — major SaaS notifications, transactional providers, and the like. An entry suppresses *all* detection for that domain and its subdomains, so the bar is high.
+
+        **This is not for your own company, clients, or vendors** — those belong in your *private* allowlist (the Google Sheet in `loader.gs`), which you manage yourself and never share.
+  - type: input
+    id: domain
+    attributes:
+      label: "Domain"
+      description: "Bare registrable domain, not a URL or subdomain."
+      placeholder: "example.com"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: "Category"
+      options:
+        - saas-notifications
+        - developer-tools
+        - productivity
+        - scheduling
+        - finance
+        - communication
+        - storage
+        - esp-transactional
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: "Why is this universally legitimate?"
+      description: "What kind of mail does this domain send, and why should it never be flagged as cold outreach?"
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: "Before submitting"
+      options:
+        - label: "This is a widely-used legitimate sender, not my own company/client/vendor."
+          required: true
+        - label: "The domain sends wanted transactional or notification mail, not marketing blasts."
+          required: true
