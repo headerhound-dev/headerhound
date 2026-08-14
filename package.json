@@ -1,0 +1,15 @@
+{
+  "name": "headerhound",
+  "version": "0.1.0",
+  "description": "An open filter list of cold-outreach sending-platform fingerprints, detectable from email headers. EasyList, but for cold email.",
+  "type": "module",
+  "scripts": {
+    "test": "node tools/validate.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/headerhound-dev/headerhound.git"
+  },
+  "license": "MIT",
+  "private": true
+}

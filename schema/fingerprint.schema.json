@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/headerhound-dev/headerhound/schema/fingerprint.schema.json",
+  "title": "HeaderHound fingerprint entry",
+  "description": "A single detection rule that identifies a cold-outreach / sales-engagement sending platform from an email's headers.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "category", "confidence", "pattern", "scope", "lastVerified"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "Stable kebab-case identifier, unique across the list."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable platform name."
+    },
+    "category": {
+      "type": "string",
+      "enum": ["cold-email-platform", "sales-engagement", "mail-merge", "deliverability-warmup"],
+      "description": "What kind of tool this is. cold-email-platform = built for bulk cold outreach; sales-engagement = SDR sequencing suites; mail-merge = Gmail mass-send tools; deliverability-warmup = inbox-warming services."
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "description": "How strongly a match implies the platform. high = distinctive header/domain unlikely to appear otherwise; medium = plausible incidental matches exist; low = weak/heuristic."
+    },
+    "pattern": {
+      "type": "string",
+      "description": "Case-insensitive regular expression, matched against the region named by `scope`. Stored as a string; consumers compile it (e.g. new RegExp(pattern, 'i'))."
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["headers", "received", "body"],
+      "description": "Where to apply the pattern. headers = the full header block; received = only Received: lines; body = message body (use sparingly, higher false-positive risk)."
+    },
+    "field": {
+      "type": "string",
+      "description": "Optional. If set, apply the pattern only to this specific header field (e.g. 'X-Mailer'), reducing false positives."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Why this fingerprint works / what the tell is."
+    },
+    "references": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" },
+      "description": "Links to the vendor or to evidence of the fingerprint."
+    },
+    "lastVerified": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date (YYYY-MM-DD) the fingerprint was last confirmed against a real sample. Stale entries should be re-checked."
+    },
+    "source": {
+      "type": "string",
+      "description": "Who contributed/verified this entry."
+    }
+  }
+}

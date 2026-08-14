@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/headerhound-dev/headerhound/schema/allowlist.schema.json",
+  "title": "HeaderHound allowlist entry",
+  "description": "A domain that should never be flagged as cold outreach — legitimate transactional, notification, or well-known service mail.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["domain", "notes", "lastVerified"],
+  "properties": {
+    "domain": {
+      "type": "string",
+      "pattern": "^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$",
+      "description": "Registrable domain (e.g. 'github.com'). Matches that domain and its subdomains."
+    },
+    "category": {
+      "type": "string",
+      "enum": ["saas-notifications", "developer-tools", "productivity", "scheduling", "finance", "communication", "storage", "esp-transactional", "other"],
+      "description": "What kind of legitimate mail this domain sends."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Why this domain is safe to allow."
+    },
+    "references": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" }
+    },
+    "lastVerified": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date (YYYY-MM-DD) the entry was last reviewed."
+    },
+    "source": {
+      "type": "string",
+      "description": "Who contributed/verified this entry."
+    }
+  }
+}

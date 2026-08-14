@@ -1,0 +1,23 @@
+{
+  "version": "0.1.0",
+  "updated": "2026-08-07",
+  "description": "HeaderHound public allowlist — domains that should never be flagged as cold outreach. Legitimate transactional, notification, and well-known service senders. Conservative by design: an entry here suppresses ALL detection for that domain and its subdomains, so only add domains whose mail is unambiguously wanted. Your own domains and vendors belong in your PRIVATE allowlist, not here.",
+  "license": "CC-BY-SA-4.0",
+  "schema": "schema/allowlist.schema.json",
+  "allow": [
+    { "domain": "github.com",   "category": "developer-tools",    "notes": "GitHub notifications, PRs, issues.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "gitlab.com",    "category": "developer-tools",    "notes": "GitLab notifications.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "slack.com",     "category": "communication",      "notes": "Slack notifications and digests.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "zoom.us",       "category": "communication",      "notes": "Zoom meeting notifications.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "calendly.com",  "category": "scheduling",         "notes": "Calendly booking notifications.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "docusign.net",  "category": "esp-transactional",  "notes": "DocuSign signing requests.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "notion.so",     "category": "productivity",       "notes": "Notion notifications and invites.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "atlassian.net", "category": "developer-tools",    "notes": "Jira / Confluence notifications.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "asana.com",     "category": "productivity",       "notes": "Asana task notifications.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "linear.app",    "category": "developer-tools",    "notes": "Linear issue notifications.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "stripe.com",    "category": "finance",            "notes": "Stripe receipts and payment notifications.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "dropbox.com",   "category": "storage",            "notes": "Dropbox share and activity notifications.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "figma.com",     "category": "productivity",       "notes": "Figma comment and share notifications.", "lastVerified": "2026-08-07", "source": "headerhound/initial" },
+    { "domain": "google.com",    "category": "saas-notifications", "notes": "Google account and service notifications.", "lastVerified": "2026-08-07", "source": "headerhound/initial" }
+  ]
+}
