@@ -1,0 +1,13 @@
+# Dependencies (none required, but just in case)
+node_modules/
+
+# Personal / local copies of the loader — keep YOUR domains out of the repo
+loader.local.gs
+*.local.gs
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
